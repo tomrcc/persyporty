@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faUser,
@@ -19,6 +19,7 @@ import {
   faBowlRice,
   faCheck,
   faCircleCheck,
+  faAngleDown,
   faArrowRight,
   faArrowLeft,
   faArrowDown,
@@ -55,9 +56,9 @@ import {
   faCircleInfo,
   faFire,
   faHand,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
-import { faLemon, faBookmark } from '@fortawesome/free-regular-svg-icons';
+import { faLemon, faBookmark } from "@fortawesome/free-regular-svg-icons";
 import {
   faFacebook,
   faInstagram,
@@ -66,139 +67,144 @@ import {
   faStripe,
   faShopify,
   faGithub,
-} from '@fortawesome/free-brands-svg-icons';
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Icon({ icon }) {
   switch (icon) {
-    case 'Envelope':
+    case "LinkedIn":
+      return <FontAwesomeIcon icon={faLinkedin} />;
+    case "Angle Down":
+      return <FontAwesomeIcon icon={faAngleDown} />;
+    case "Envelope":
       return <FontAwesomeIcon icon={faEnvelope} />;
-    case 'User':
+    case "User":
       return <FontAwesomeIcon icon={faUser} />;
-    case 'Bread':
+    case "Bread":
       return <FontAwesomeIcon icon={faBreadSlice} />;
-    case 'Mug':
+    case "Mug":
       return <FontAwesomeIcon icon={faMugSaucer} />;
-    case 'Egg':
+    case "Egg":
       return <FontAwesomeIcon icon={faEgg} />;
-    case 'Utensils':
+    case "Utensils":
       return <FontAwesomeIcon icon={faUtensils} />;
-    case 'Carrot':
+    case "Carrot":
       return <FontAwesomeIcon icon={faCarrot} />;
-    case 'Burger':
+    case "Burger":
       return <FontAwesomeIcon icon={faBurger} />;
-    case 'Fish':
+    case "Fish":
       return <FontAwesomeIcon icon={faFish} />;
-    case 'Seedling':
+    case "Seedling":
       return <FontAwesomeIcon icon={faSeedling} />;
-    case 'WheatAwn':
+    case "WheatAwn":
       return <FontAwesomeIcon icon={faWheatAwn} />;
-    case 'PlateWheat':
+    case "PlateWheat":
       return <FontAwesomeIcon icon={faPlateWheat} />;
-    case 'PizzaSlice':
+    case "PizzaSlice":
       return <FontAwesomeIcon icon={faPizzaSlice} />;
-    case 'PepperHot':
+    case "PepperHot":
       return <FontAwesomeIcon icon={faPepperHot} />;
-    case 'ChampagneGlasses':
+    case "ChampagneGlasses":
       return <FontAwesomeIcon icon={faChampagneGlasses} />;
-    case 'AppleWhole':
+    case "AppleWhole":
       return <FontAwesomeIcon icon={faAppleWhole} />;
-    case 'BowlRice':
+    case "BowlRice":
       return <FontAwesomeIcon icon={faBowlRice} />;
-    case 'Check':
+    case "Check":
       return <FontAwesomeIcon icon={faCheck} />;
-    case 'CircleCheck':
+    case "CircleCheck":
       return <FontAwesomeIcon icon={faCircleCheck} />;
-    case 'ArrowRight':
+    case "ArrowRight":
       return <FontAwesomeIcon icon={faArrowRight} />;
-    case 'ArrowLeft':
+    case "ArrowLeft":
       return <FontAwesomeIcon icon={faArrowLeft} />;
-    case 'ArrowDown':
+    case "ArrowDown":
       return <FontAwesomeIcon icon={faArrowDown} />;
-    case 'ArrowUp':
+    case "ArrowUp":
       return <FontAwesomeIcon icon={faArrowUp} />;
-    case 'CaretLeft':
+    case "CaretLeft":
       return <FontAwesomeIcon icon={faCaretLeft} />;
-    case 'CaretRight':
+    case "CaretRight":
       return <FontAwesomeIcon icon={faCaretRight} />;
-    case 'CaretDown':
+    case "CaretDown":
       return <FontAwesomeIcon icon={faCaretDown} />;
-    case 'CaretUp':
+    case "CaretUp":
       return <FontAwesomeIcon icon={faCaretUp} />;
-    case 'PaperPlane':
+    case "PaperPlane":
       return <FontAwesomeIcon icon={faPaperPlane} />;
-    case 'CartShopping':
+    case "CartShopping":
       return <FontAwesomeIcon icon={faCartShopping} />;
-    case 'Shop':
+    case "Shop":
       return <FontAwesomeIcon icon={faShop} />;
-    case 'BagShopping':
+    case "BagShopping":
       return <FontAwesomeIcon icon={faBagShopping} />;
-    case 'CreditCard':
+    case "CreditCard":
       return <FontAwesomeIcon icon={faCreditCard} />;
-    case 'Store':
+    case "Store":
       return <FontAwesomeIcon icon={faStore} />;
-    case 'ShopLock':
+    case "ShopLock":
       return <FontAwesomeIcon icon={faShopLock} />;
-    case 'Car':
+    case "Car":
       return <FontAwesomeIcon icon={faCar} />;
-    case 'CircleHalfStroke':
+    case "CircleHalfStroke":
       return <FontAwesomeIcon icon={faCircleHalfStroke} />;
-    case 'LocationDot':
+    case "LocationDot":
       return <FontAwesomeIcon icon={faLocationDot} />;
-    case 'LocationPin':
+    case "LocationPin":
       return <FontAwesomeIcon icon={faLocationPin} />;
-    case 'LocationCrosshairs':
+    case "LocationCrosshairs":
       return <FontAwesomeIcon icon={faLocationCrosshairs} />;
-    case 'Gift':
+    case "Gift":
       return <FontAwesomeIcon icon={faGift} />;
-    case 'House':
+    case "House":
       return <FontAwesomeIcon icon={faHouse} />;
-    case 'MagnifyingGlass':
+    case "MagnifyingGlass":
       return <FontAwesomeIcon icon={faMagnifyingGlass} />;
-    case 'Image':
+    case "Image":
       return <FontAwesomeIcon icon={faImage} />;
-    case 'Phone':
+    case "Phone":
       return <FontAwesomeIcon icon={faPhone} />;
-    case 'Bars':
+    case "Bars":
       return <FontAwesomeIcon icon={faBars} />;
-    case 'Heart':
+    case "Heart":
       return <FontAwesomeIcon icon={faHeart} />;
-    case 'Xmark':
+    case "Xmark":
       return <FontAwesomeIcon icon={faXmark} />;
-    case 'Comment':
+    case "Comment":
       return <FontAwesomeIcon icon={faComment} />;
-    case 'TruckFast':
+    case "TruckFast":
       return <FontAwesomeIcon icon={faTruckFast} />;
-    case 'FaceSmile':
+    case "FaceSmile":
       return <FontAwesomeIcon icon={faFaceSmile} />;
-    case 'Bell':
+    case "Bell":
       return <FontAwesomeIcon icon={faBell} />;
-    case 'CalendarDays':
+    case "CalendarDays":
       return <FontAwesomeIcon icon={faCalendarDays} />;
-    case 'CircleInfo':
+    case "CircleInfo":
       return <FontAwesomeIcon icon={faCircleInfo} />;
-    case 'Fire':
+    case "Fire":
       return <FontAwesomeIcon icon={faFire} />;
-    case 'Hand':
+    case "Hand":
       return <FontAwesomeIcon icon={faHand} />;
-    case 'Lemon':
+    case "Lemon":
       return <FontAwesomeIcon icon={faLemon} />;
-    case 'Bookmark':
+    case "Bookmark":
       return <FontAwesomeIcon icon={faBookmark} />;
-    case 'Facebook':
+    case "Facebook":
       return <FontAwesomeIcon icon={faFacebook} />;
-    case 'Instagram':
+    case "Instagram":
       return <FontAwesomeIcon icon={faInstagram} />;
-    case 'Youtube':
+    case "Youtube":
       return <FontAwesomeIcon icon={faYoutube} />;
-    case 'Google':
+    case "Google":
       return <FontAwesomeIcon icon={faGoogle} />;
-    case 'Stripe':
+    case "Stripe":
       return <FontAwesomeIcon icon={faStripe} />;
-    case 'Shopify':
+    case "Shopify":
       return <FontAwesomeIcon icon={faShopify} />;
-    case 'Github':
+    case "Github":
       return <FontAwesomeIcon icon={faGithub} />;
-    case 'CloudCannon':
+    case "CloudCannon":
       return (
         <svg
           version="1.0"

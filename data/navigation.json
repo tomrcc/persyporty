@@ -6,47 +6,31 @@
     "color": "#393939",
     "links": [
       {
-        "link": "/blog/",
-        "text": "Blog"
-      },
-      {
-        "link": "/feed.xml",
-        "text": "RSS Feed"
+        "link": "/#contact",
+        "text": "Contact"
       }
     ]
   },
   "footer": {
-    "logo": "/images/logos/logo-wordmark-white.png",
+    "logo": "/images/Slice 1.svg",
     "logo_url": "/",
-    "copyright": "MyCompany. All rights reserved.",
+    "copyright": "Tom Richardson. All rights reserved.",
     "background_color": "#333232",
     "color": "#ffffff",
     "links": [
       {
-        "link": "/blog/",
-        "text": "Blog"
-      },
-      {
-        "link": "/feed.xml",
-        "text": "RSS Feed"
+        "link": "/#contact",
+        "text": "Contact"
       }
     ],
     "social": [
       {
-        "link": "https://www.facebook.com/mycompany",
-        "social_icon": "Facebook"
-      },
-      {
         "link": "https://www.instagram.com/mycompany",
-        "social_icon": "Instagram"
+        "social_icon": "LinkedIn"
       },
       {
         "link": "https://www.github.com/mycompany",
         "social_icon": "Github"
-      },
-      {
-        "link": "https://www.youtube.com/mycompany",
-        "social_icon": "Youtube"
       }
     ]
   }

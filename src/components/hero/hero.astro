@@ -1,214 +1,128 @@
 ---
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
-import Markdown from "../utility/markdown.astro";
+import Icon from "../utility/icon";
 
-interface Props {
-  background_color: string;
-  heading: {
-    heading_text: string;
-    heading_gradient_color: string;
-  };
-  subheading: {
-    markdown_content: string;
-    color: string;
-  };
-  image: {
-    image_path: string;
-    alt_text: string;
-  };
-  buttons: [
-    {
-      _bookshop_name: string;
-      text: string;
-      icon: string;
-      link: string;
-      background_color?: string;
-      hover_brightness: number;
-      text_color: string;
-    },
-  ];
-}
+interface Props {}
 
 const block = Astro.props;
-const buttons = import.meta.glob("/src/components/buttons/**/*.astro", {
-  eager: true,
-});
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{jpeg,jpg,png,gif}",
-  { eager: true }
-);
-
-const imageSrc =
-  images[block.image.image_path]?.default ?? block.image.image_path;
-
-const headingGradientColor = block.heading.heading_gradient_color;
 ---
 
-<section style={`background-color: ${block.background_color};`}>
+<section>
   <div class="hero-container">
-    <div class="content">
-      <h1 class="heading">{block.heading.heading_text}</h1>
-      <div class="subheading-text" style={`color: ${block.subheading.color};`}>
-        <Markdown content={block.subheading.markdown_content} />
-      </div>
-      <div class="buttons">
-        {
-          block.buttons.map((button) => {
-            const name = button._bookshop_name.split("/").reverse()[0];
-            const filePath = `/src/components/buttons/${name}/${name}.astro`;
-            const Component = (buttons[filePath] as any)?.default;
-            return <Component {...button} />;
-          })
-        }
-      </div>
-    </div>
-    <div class="blob">
-      <Image
-        alt={block.image.alt_text}
-        widths={[320, 500, 640]}
-        sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
-        src={imageSrc}
-      />
+    <h1 class="flex flex-col overflow-y-hidden">
+      <span
+        style={`font-size: 420px; line-height: 330px; font-weight: 600; animation: slideUp ease 1.5s; `}>
+        Tom
+      </span>
+      <span
+        style={`font-size: 164px; line-height: 136px; font-weight: 400; animation: slideLeft ease 1.5s; display: flex; margin: 0 auto;`}>
+        <span class="rotating-letter">R</span>
+        <span class="rotating-letter">i</span>
+        <span class="rotating-letter">c</span>
+        <span class="rotating-letter">h</span>
+        <span class="rotating-letter">a</span>
+        <span class="rotating-letter">r</span>
+        <span class="rotating-letter">d</span>
+        <span class="rotating-letter">s</span>
+        <span class="rotating-letter">o</span>
+        <span class="rotating-letter">n</span>
+      </span>
+    </h1>
+    <p
+      style={`font-size: 104px; font-weight: 100; line-height: 96px; margin-top: 36px; animation: fadeInAnimation ease 4s;`}>
+      Solutions Architect
+    </p>
+    <p
+      style={`font-size: 20px; font-weight: 100; line-height: 20px; animation: fadeInAnimation ease 4s;`}>
+      for static sites
+    </p>
+    <div
+      class="mx-auto mt-4 w-10 text-gray-200"
+      style={`animation: fadeInAnimation ease 7s;`}>
+      <Icon icon={"Angle Down"} />
     </div>
   </div>
-
-  <style define:vars={{ headingGradientColor }}>
-    .hero-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: space-between;
-      align-items: center;
-      padding-block: 24px;
-      padding-inline: var(--pagePadding);
-      max-width: var(--pageContainer);
-      margin-inline: auto;
-      overflow: hidden;
-    }
-
-    .content h1 {
-      font-size: 2.5rem;
-      line-height: 1em;
-      font-weight: 700;
-      background: -webkit-linear-gradient(to left, #eee 50%, #333);
-      background: linear-gradient(
-        to left,
-        var(--headingGradientColor) 50%,
-        #000000
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .subheading-text {
-      margin-top: 1rem;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: fit-content;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    button {
-      padding: 0.75rem 1.2rem;
-      border-radius: 20px;
-      font-size: 1.25em;
-      cursor: pointer;
-      transition: all ease-in-out 0.15s;
-      align-items: center;
-      justify-content: center;
-    }
-    .btn {
-      background: #4384e6;
-      color: #fff;
-      border: none;
-      display: flex;
-      gap: 8px;
-      padding: 1rem;
-    }
-    .btn svg {
-      width: 1rem;
-    }
-
-    .btn:hover {
-      background: #0066ff;
-    }
-
-    .btn-outline {
-      border: 1px solid #0d6efd;
-      background: transparent;
-      color: #0d6efd;
-      margin-left: 5px;
-    }
-
-    button i {
-      font-size: 0.78em;
-    }
-
-    .blob {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    .blob > img {
-      max-width: 600px;
-      width: 100%;
-      background-size: cover;
-      -webkit-background-position: center;
-      background-position: center center;
-      margin: 20px;
-      animation: animate 10s ease-in-out infinite;
-      transition: all 1s ease-in-out;
-    }
-
-    @media only screen and (min-width: 400px) {
-      .buttons {
-        flex-direction: row;
-        margin-top: 2rem;
-      }
-      .content h1 {
-        font-size: 3.8rem;
-      }
-    }
-    @media only screen and (min-width: 960px) {
-      .hero-container {
-        flex-direction: row;
-        padding-block: 48px;
-      }
-      .content {
-        width: 50%;
-      }
-
-      .blob {
-        width: 50%;
-      }
-      .buttons {
-        flex-direction: column;
-      }
-    }
-    @media only screen and (min-width: 1280px) {
-      .buttons {
-        flex-direction: row;
-      }
-    }
-
-    @keyframes animate {
-      0%,
-      100% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      }
-      50% {
-        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-      }
-    }
-  </style>
 </section>
+
+<style>
+  section {
+    max-width: var(--pageContainer);
+    padding-inline: var(--pagePadding);
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 96px;
+  }
+
+  h1 {
+    padding-block: 48px;
+  }
+
+  .rotating-letter {
+    animation: rotatingLetter ease 2.25s;
+    width: min-content;
+  }
+  @keyframes rotatingLetter {
+    0% {
+      transform: rotate(0);
+    }
+    10% {
+      transform: rotate(-20deg);
+    }
+    60% {
+      transform: rotate(15deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    90% {
+      transform: rotate(3deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(200%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(200%);
+      opacity: 0;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0rem);
+    }
+  }
+
+  @keyframes scale {
+    0% {
+      scale: 0;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>

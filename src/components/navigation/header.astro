@@ -1,5 +1,5 @@
 ---
-import { header } from '../../../data/navigation.json';
+import { header } from "../../../data/navigation.json";
 ---
 
 <header
@@ -7,10 +7,10 @@ import { header } from '../../../data/navigation.json';
   x-data="{ open: false }"
   x-transition
   style={`background-color: ${header.background_color}; color: ${header.color};`}>
-  <div class="header__container">
+  <div class="header__container" style={`animation: fadeInAnimation ease 3s;`}>
     <nav class="header__nav">
-      <a class="header__logo-link" href={header.logo_url}>
-        <img class="header__logo-image" src={header.logo} alt="Logo" />
+      <a class="header__logo-link" href="/">
+        <img class="header__logo-image" src="/images/Slice 1.svg" alt="Logo" />
       </a>
       <button class="hamburger" @click="open = ! open">
         <svg height="16" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -31,23 +31,27 @@ import { header } from '../../../data/navigation.json';
           </g>
         </svg>
       </button>
-      <ul
-        class="header__nav-links"
-        x-show="open"
-        x-transition
-        @click.outside="open = false">
-        {
-          header.links.map((link) => {
-            return (
-              <li class="header__nav-item">
-                <a class="header__nav-link" href={link.link}>
-                  {link.text}
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
+      <div class="flex gap-16 items-center">
+        <ul
+          class="header__nav-links"
+          x-show="open"
+          x-transition
+          @click.outside="open = false">
+          <li class="text-lg font-light tracking-wide">Contact</li>
+        </ul>
+        <!-- <div class="">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="currentColor"
+            ><path d="M0 0h24v24H0V0z" fill="none"></path><path
+              d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zm-2 5.79V18h-3.52L12 20.48 9.52 18H6v-3.52L3.52 12 6 9.52V6h3.52L12 3.52 14.48 6H18v3.52L20.48 12 18 14.48zM12 6v12c3.31 0 6-2.69 6-6s-2.69-6-6-6z"
+            ></path></svg
+          >
+        </div> -->
+      </div>
     </nav>
   </div>
 </header>
@@ -71,7 +75,7 @@ import { header } from '../../../data/navigation.json';
   }
 
   .header__logo-image {
-    width: 200px;
+    width: 64px;
   }
 
   .header__nav-links {
@@ -129,24 +133,15 @@ import { header } from '../../../data/navigation.json';
       display: none;
     }
   }
-  /* .hamburger__inner,
-  .hamburger__inner::before,
-  .hamburger__inner::after {
-    display: block;
-    width: 2rem;
-    height: 0.25rem;
-    background-color: #034ad8;
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-  .hamburger__inner::before,
-  .hamburger__inner::after {
-    content: '';
-    display: block;
-    position: relative;
-  }
-  .hamburger__inner::before {
-    top: -0.625rem;
-  }
-  .hamburger__inner::after {
-    top: 0.4rem;
-  } */
 </style>

@@ -1,0 +1,59 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import Markdown from "../utility/markdown.astro";
+
+interface Props {
+  background_color: string;
+}
+
+const block = Astro.props;
+---
+
+<section class="left-right" style={`background-color: #000000; color: #ffffff`}>
+  <div class="content">
+    <div class="text">
+      <h2 style={`font-size: 96px; line-height: 108px; font-weight: 600;`}>
+        What I do
+      </h2>
+      <p style={`font-size: 16px; line-height: 34px; letter-spacing: 0.1em;`}>
+        I’m a full stack web developer, trained in a React focused bootcamp, now
+        specialising in static site generators - particularly Astro, Eleventy,
+        Hugo, and Jekyll.
+      </p>
+      <p style={`font-size: 16px; line-height: 34px; letter-spacing: 0.1em;`}>
+        I work as a Solutions Architect for CloudCannon, a git-based content
+        management system for managing static sites.
+      </p>
+    </div>
+    <div class="image">
+      <img src="/images/square-portrait.png" alt="" />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding-block: 128px;
+  }
+  .content {
+    max-width: var(--pageContainer);
+    padding-inline: var(--pagePadding);
+    margin: 0 auto;
+    display: flex;
+  }
+  .text {
+    width: 66%;
+  }
+  .image {
+    width: 34%;
+  }
+  .image img {
+    border-radius: 100%;
+  }
+  p {
+    max-width: 72ch;
+    font-weight: 200;
+    margin-bottom: 1rem;
+  }
+</style>

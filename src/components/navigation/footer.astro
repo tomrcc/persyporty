@@ -1,6 +1,6 @@
 ---
-import { footer } from '../../../data/navigation.json';
-import Icon from '../utility/icon';
+import { footer } from "../../../data/navigation.json";
+import Icon from "../utility/icon";
 ---
 
 <footer
@@ -11,11 +11,7 @@ import Icon from '../utility/icon';
       <a
         class="flex justify-center sm:justify-start items-center"
         href={footer.logo_url}>
-        <img
-          class="footer__logo-image"
-          src={footer.logo}
-          alt="Body of the Year Logo"
-        />
+        <img class="footer__logo-image" src={footer.logo} alt="" />
       </a>
       <ul class="flex gap-4 items-center justify-center">
         {
@@ -30,24 +26,11 @@ import Icon from '../utility/icon';
           })
         }
       </ul>
-
-      <ul class="flex flex-col text-center sm:text-end gap-4">
-        {
-          footer.links.map((link) => {
-            return (
-              <li>
-                <a href={link.link}>{link.text}</a>
-              </li>
-            );
-          })
-        }
-      </ul>
+      <p class="text-center py-8">
+        &#169; {new Date().getFullYear()}
+        {footer.copyright}
+      </p>
     </div>
-
-    <p class="text-center py-8">
-      &#169; {new Date().getFullYear()}
-      {footer.copyright}
-    </p>
   </div>
 </footer>
 
