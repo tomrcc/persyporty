@@ -13,7 +13,7 @@ header_styles:
 content_blocks:
   - _bookshop_name: success
     description: Success.
-    image_path: src/assets/images/undraw-hello.svg
+    image_path: /src/assets/images/undraw-hello.svg
     image_alt: Success illustration
     button:
       button_text: Back Home
