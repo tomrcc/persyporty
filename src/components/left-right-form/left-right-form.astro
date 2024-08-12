@@ -19,7 +19,8 @@ const block = Astro.props;
       class="form"
       style={`background-color: white;`}
       method="post"
-      action="/success/index.html">
+      id="contact-form"
+      action="/success/">
       <div class="form-group">
         <label for="name">Name </label>
         <input type="text" name="name" id="name" />
@@ -44,7 +45,7 @@ const block = Astro.props;
     <script>
       var submitted = false;
       var tokenCreated = false;
-      var formEl = document.getElementById("contact");
+      var formEl = document.getElementById("contact-form");
 
       formEl.addEventListener("submit", function (event) {
         // Check if the recaptcha exists
