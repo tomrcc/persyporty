@@ -31,15 +31,16 @@ import { header } from "../../../data/navigation.json";
           </g>
         </svg>
       </button>
-      <div class="flex gap-16 items-center">
-        <ul
-          class="header__nav-links"
-          x-show="open"
-          x-transition
-          @click.outside="open = false">
-          <li class="text-lg font-light tracking-wide">Contact</li>
-        </ul>
-        <!-- <div class="">
+      <ul
+        class="header__nav-links"
+        x-show="open"
+        x-transition
+        @click.outside="open = false">
+        <li class="text-lg font-light tracking-wide">
+          <a href="/#contact">Contact</a>
+        </li>
+      </ul>
+      <!-- <div class="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -51,7 +52,6 @@ import { header } from "../../../data/navigation.json";
             ></path></svg
           >
         </div> -->
-      </div>
     </nav>
   </div>
 </header>
@@ -72,6 +72,7 @@ import { header } from "../../../data/navigation.json";
     justify-content: space-between;
     align-items: center;
     padding-block: 1rem;
+    width: 100%;
   }
 
   .header__logo-image {

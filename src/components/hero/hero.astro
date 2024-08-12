@@ -9,12 +9,8 @@ const block = Astro.props;
 <section>
   <div class="hero-container">
     <h1 class="flex flex-col overflow-y-hidden">
-      <span
-        style={`font-size: 420px; line-height: 330px; font-weight: 600; animation: slideUp ease 1.5s; `}>
-        Tom
-      </span>
-      <span
-        style={`font-size: 164px; line-height: 136px; font-weight: 400; animation: slideLeft ease 1.5s; display: flex; margin: 0 auto;`}>
+      <span class="heading-line-one"> Tom </span>
+      <span class="heading-line-two">
         <span class="rotating-letter">R</span>
         <span class="rotating-letter">i</span>
         <span class="rotating-letter">c</span>
@@ -27,17 +23,9 @@ const block = Astro.props;
         <span class="rotating-letter">n</span>
       </span>
     </h1>
-    <p
-      style={`font-size: 104px; font-weight: 100; line-height: 96px; margin-top: 36px; animation: fadeInAnimation ease 4s;`}>
-      Solutions Architect
-    </p>
-    <p
-      style={`font-size: 20px; font-weight: 100; line-height: 20px; animation: fadeInAnimation ease 4s;`}>
-      for static sites
-    </p>
-    <div
-      class="mx-auto mt-4 w-10 text-gray-200"
-      style={`animation: fadeInAnimation ease 7s;`}>
+    <p class="subheading">Solutions Architect</p>
+    <p class="byline">for static sites</p>
+    <div class="icon mx-auto mt-4 w-10 text-gray-200">
       <Icon icon={"Angle Down"} />
     </div>
   </div>
@@ -55,11 +43,147 @@ const block = Astro.props;
   h1 {
     padding-block: 48px;
   }
-
+  .heading-line-one {
+    font-size: 120px;
+    line-height: 100px;
+    font-weight: 600;
+    animation: slideUp ease 1.5s;
+  }
+  .heading-line-two {
+    font-size: 48px;
+    line-height: 40px;
+    font-weight: 400;
+    animation: slideLeft ease 1.5s;
+    display: flex;
+    margin: 0 auto;
+  }
   .rotating-letter {
     animation: rotatingLetter ease 2.25s;
     width: min-content;
   }
+  .subheading {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 100;
+    margin-top: 36px;
+    animation: fadeInAnimation ease 4s;
+  }
+  .byline {
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 20px;
+    animation: fadeInAnimation ease 4s;
+  }
+  .icon {
+    animation: fadeInAnimation ease 6s;
+  }
+
+  /* Media Queries */
+
+  @media screen and (min-width: 420px) {
+    .heading-line-one {
+      font-size: 150px;
+      line-height: 140px;
+    }
+    .heading-line-two {
+      font-size: 60px;
+      line-height: 48px;
+    }
+    .subheading {
+      font-size: 40px;
+      line-height: 40px;
+    }
+  }
+
+  @media screen and (min-width: 480px) {
+    .heading-line-one {
+      font-size: 180px;
+      line-height: 160px;
+    }
+    .heading-line-two {
+      font-size: 72px;
+      line-height: 64px;
+    }
+    .subheading {
+      font-size: 46px;
+      line-height: 46px;
+    }
+  }
+
+  @media screen and (min-width: 540px) {
+    .heading-line-one {
+      font-size: 200px;
+      line-height: 190px;
+    }
+    .heading-line-two {
+      font-size: 80px;
+      line-height: 64px;
+    }
+    .subheading {
+      font-size: 50px;
+      line-height: 50px;
+    }
+  }
+
+  @media screen and (min-width: 650px) {
+    .heading-line-one {
+      font-size: 250px;
+      line-height: 220px;
+    }
+    .heading-line-two {
+      font-size: 96px;
+      line-height: 80px;
+    }
+    .subheading {
+      font-size: 66px;
+      line-height: 62px;
+    }
+  }
+  @media screen and (min-width: 780px) {
+    .heading-line-one {
+      font-size: 300px;
+      line-height: 260px;
+    }
+    .heading-line-two {
+      font-size: 110px;
+      line-height: 100px;
+    }
+    .subheading {
+      font-size: 76px;
+      line-height: 72px;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    .heading-line-one {
+      font-size: 360px;
+      line-height: 300px;
+    }
+    .heading-line-two {
+      font-size: 140px;
+      line-height: 110px;
+    }
+    .subheading {
+      font-size: 88px;
+      line-height: 84px;
+    }
+  }
+
+  @media screen and (min-width: 1020px) {
+    .heading-line-one {
+      font-size: 420px;
+      line-height: 330px;
+    }
+    .heading-line-two {
+      font-size: 164px;
+      line-height: 136px;
+    }
+    .subheading {
+      font-size: 104px;
+      line-height: 96px;
+    }
+  }
+
+  /* Animations */
   @keyframes rotatingLetter {
     0% {
       transform: rotate(0);
