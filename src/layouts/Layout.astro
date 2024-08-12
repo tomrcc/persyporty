@@ -1,9 +1,9 @@
 ---
-import '../styles/main.scss';
-import site from '../../data/site.json';
-import Header from '../components/navigation/header.astro';
-import Footer from '../components/navigation/footer.astro';
-import { SEO } from 'astro-seo';
+import "../styles/main.scss";
+import site from "../../data/site.json";
+import Header from "../components/navigation/header.astro";
+import Footer from "../components/navigation/footer.astro";
+import { SEO } from "astro-seo";
 
 export interface SEOProps {
   page_description: string | null;
@@ -12,7 +12,6 @@ export interface SEOProps {
   canonical_url: string | null;
   no_index: boolean | null;
   open_graph_type: string | null;
-  author_twitter_handle: string | null;
 }
 
 export interface Props {
@@ -23,7 +22,9 @@ export interface Props {
 const { seo } = Astro.props;
 const baseUrl = Astro.site;
 const title = Astro.props.title
-  ? `${Astro.props.title} | ${site.site_title}`
+  ? Astro.url.pathname === "/"
+    ? `${site.site_title}`
+    : `${Astro.props.title} | ${site.site_title}`
   : site.site_title;
 const description = seo?.page_description || site.description;
 const image = seo?.featured_image || site.image;
@@ -37,7 +38,10 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Add fonts -->
@@ -60,7 +64,7 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
         basic: {
           title: Astro.props.title,
           url: baseUrl?.toString(),
-          type: `${seo?.open_graph_type || 'website'}`,
+          type: `${seo?.open_graph_type || "website"}`,
           image: `${baseUrl}${image}`,
         },
         optional: {
@@ -70,11 +74,6 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
           url: `${baseUrl}${image}`,
           alt: image_alt,
         },
-      }}
-      twitter={{
-        creator: `${seo?.author_twitter_handle || site.twitter_site}`,
-        site: `${site.twitter_site}`,
-        card: 'summary_large_image',
       }}
     />
   </head>

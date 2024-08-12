@@ -1,7 +1,6 @@
 {
-  "site_title": "Astro Starter",
-  "description": "A starter template for Astro, built by Bookshop components - for CloudCannon CMS.",
-  "twitter_site": "",
-  "image": "/images/astro-logo-light-gradient.png",
-  "image_alt": "Astro logo"
+  "site_title": "Tom Richardson",
+  "description": "Tom Richardson's personal portfolio. Tom is a web developer, specialising in static sites and SSG's.",
+  "image": "/images/Slice 1.svg",
+  "image_alt": "Tom logo"
 }
