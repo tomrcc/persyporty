@@ -1,8 +1,7 @@
 ---
-import MarkdownIt from 'markdown-it';
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-import Button from '../utility/button.astro';
+import MarkdownIt from "markdown-it";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 const md = new MarkdownIt({ html: true });
 
 interface Props {
@@ -10,18 +9,10 @@ interface Props {
   image_alt: string;
   description: string;
   button_text: string;
-  button: {
-    button_text: string;
-    button_icon: string;
-    button_link: string;
-    background_color: string;
-    hover_brightness: number;
-    text_color: string;
-  };
 }
 const block = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp}',
+  "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp}",
   { eager: true }
 );
 
@@ -39,20 +30,7 @@ const imageSrc = images[block.image_path]?.default ?? block.image_path;
         src={imageSrc}
       />
       <h3 class="my-5" set:html={md.render(block.description)} />
-      {
-        block.button.button_text ? (
-          <div class="button">
-            <Button
-              button_link={block.button.button_link}
-              button_text={block.button.button_text}
-              background_color={block.button.background_color}
-              text_color={block.button.text_color}
-              button_icon={block.button.button_icon}
-              hover_brightness={block.button.hover_brightness}
-            />
-          </div>
-        ) : null
-      }
+      <a href="/">← Go Home</a>
     </div>
   </div>
 </section>
