@@ -32,10 +32,54 @@ const block = Astro.props;
         <label for="message">Message </label>
         <textarea name="message" id="message" required></textarea>
       </div>
+      <input type="hidden" name="inbox_key" value="personal" />
+      <input type="text" name="_gotcha" style="display: none;" />
       <div class="form-group">
         <input class="px-4 py-2" type="submit" value="Send message" />
       </div>
     </form>
+    <script
+      src="https://www.google.com/recaptcha/api.js?render=6LevoiQqAAAAACwhs5bpgBVwl3AIUVeKan6pFhAw"
+    ></script>
+    <script>
+      var submitted = false;
+      var tokenCreated = false;
+      var formEl = document.getElementById("contact");
+
+      formEl.addEventListener("submit", function (event) {
+        // Check if the recaptcha exists
+        if (!tokenCreated) {
+          // Prevent submission
+          event.preventDefault();
+
+          // Prevent more than one submission
+          if (!submitted) {
+            submitted = true;
+            // needs for recaptacha ready
+            grecaptcha.ready(function () {
+              // do request for recaptcha token
+              // response is promise with passed token
+              grecaptcha
+                .execute("6LevoiQqAAAAACwhs5bpgBVwl3AIUVeKan6pFhAw", {
+                  action: "create_comment",
+                })
+                .then(function (token) {
+                  // add token to form
+                  var input = document.createElement("input");
+                  input.type = "hidden";
+                  input.name = "g-recaptcha-response";
+                  input.value = token;
+                  formEl.appendChild(input);
+
+                  // resubmit the form
+                  tokenCreated = true;
+                  formEl.submit();
+                });
+            });
+          }
+        }
+      });
+    </script>
   </div>
 </section>
 
