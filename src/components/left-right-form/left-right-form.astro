@@ -12,8 +12,7 @@ const block = Astro.props;
 
 <section class="left-right" style={`background-color: #7469B6;`} id="contact">
   <div class="content">
-    <h2
-      style={`font-size: 156px; line-height: 120px; font-weight: 500; color: #ffffff;`}>
+    <h2 class="heading" style={`color: #ffffff;`}>
       <span>Contact</span><span>Contact</span>
     </h2>
     <form
@@ -42,26 +41,32 @@ const block = Astro.props;
 
 <style>
   section {
-    padding-block: 96px;
+    padding-block: 48px;
   }
   .content {
     max-width: var(--pageContainer);
     padding-inline: var(--pagePadding);
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  h2 {
-    width: 50%;
+  .heading {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding-block: 64px;
+    align-items: center;
+    padding-block: 36px;
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 500;
   }
   form {
-    width: 50%;
+    width: 100%;
     max-width: 28rem;
     padding-block: 64px;
-    padding-inline: 48px;
+    padding-inline: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -87,5 +92,41 @@ const block = Astro.props;
   }
   .form-group textarea {
     min-height: 20ch;
+  }
+
+  @media screen and (min-width: 420px) {
+    .heading {
+      font-size: 100px;
+      line-height: 100px;
+    }
+  }
+  @media screen and (min-width: 720px) {
+    .form {
+      padding-inline: 48px;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .heading {
+      /* font-size: 156px;
+      line-height: 120px; */
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .heading {
+      width: 55%;
+      font-size: 156px;
+      line-height: 120px;
+    }
+    form {
+      width: 45%;
+    }
+    .content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    section {
+      padding-block: 96px;
+    }
   }
 </style>
