@@ -25,9 +25,9 @@ const block = Astro.props;
     </h1>
     <p class="subheading">Web Developer</p>
     <!-- <p class="byline">for static sites</p> -->
-    <div class="icon mx-auto mt-4 w-10 text-gray-200">
+    <!-- <div class="icon mx-auto mt-4 w-10 text-gray-200">
       <Icon icon={"Angle Down"} />
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -36,40 +36,76 @@ const block = Astro.props;
     max-width: var(--pageContainer);
     padding-inline: var(--pagePadding);
     margin: 0 auto;
-    padding-bottom: 96px;
+    padding-bottom: 128px;
   }
 
   h1 {
-    padding-block: 48px;
-    text-align: center;
+    padding-block: 72px;
+    /* text-align: center; */
   }
   .heading-line-one {
-    font-size: clamp(7.5rem, 36vw, 34.25rem);
-    line-height: clamp(6rem, 29vw, 28rem);
+    font-size: clamp(5rem, 28vw, 30.25rem);
+    line-height: clamp(4rem, 29vw, 28rem);
     font-weight: 600;
     animation: slideUp ease 1s;
+    margin-left: -1rem;
   }
   .heading-line-two {
-    font-size: clamp(3rem, 14vw, 14.25rem);
-    line-height: clamp(3rem, 12vw, 12.25rem);
+    font-size: clamp(2rem, 12vw, 14.25rem);
+    line-height: clamp(2rem, 10vw, 12.25rem);
     font-weight: 400;
     animation: slideLeft ease 1.25s;
     display: flex;
-    margin: 0 auto;
   }
   .rotating-letter {
     animation: rotatingLetter ease 1.75s;
-    width: min-content;
+    /* width: min-content; */
   }
   .subheading {
-    font-size: 2rem;
-    line-height: 1.75rem;
-    font-weight: 100;
-    text-align: center;
+    font-size: clamp(1.25rem, 6vw, 2.5rem);
+    font-weight: 300;
+    margin-left: clamp(0.25rem, 1vw, 3rem);
+
     animation: fadeInAnimation ease 3s;
+    letter-spacing: 0.15rem;
   }
   .icon {
+    /* margin-top: 2rem; */
     animation: fadeInAnimation ease 3s;
+  }
+
+  @media only screen and (min-width: 480px) {
+    .heading-line-two {
+      margin-left: clamp(0.1rem, 2vw, 5rem);
+    }
+    .subheading {
+      margin-left: clamp(0.25rem, 2vw, 3rem);
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .heading-line-two {
+      margin-left: clamp(0.5rem, 2.5vw, 5rem);
+    }
+    .subheading {
+      margin-left: clamp(1.25rem, 2.75vw, 6rem);
+    }
+  }
+  @media only screen and (min-width: 720px) {
+    .heading-line-two {
+      margin-left: clamp(0.5rem, 3vw, 5rem);
+    }
+    .subheading {
+      margin-left: clamp(1.25rem, 3.5vw, 6rem);
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    .heading-line-two {
+      margin-left: clamp(0.5rem, 4vw, 5rem);
+    }
+    .subheading {
+      margin-left: clamp(1.25rem, 4.25vw, 6rem);
+    }
   }
 
   /* Animations */
