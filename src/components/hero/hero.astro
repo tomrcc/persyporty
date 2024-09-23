@@ -74,6 +74,23 @@ const block = Astro.props;
     animation: fadeInAnimation ease 3s;
   }
 
+  @media only screen and (min-width: 350px) {
+    .heading-line-two {
+      margin-left: clamp(0.1rem, 1vw, 5rem);
+    }
+    /* .subheading {
+      margin-left: clamp(0.25rem, 2vw, 3rem);
+    } */
+  }
+  @media only screen and (min-width: 400px) {
+    .heading-line-two {
+      margin-left: clamp(0.1rem, 1.5vw, 5rem);
+    }
+    /* .subheading {
+      margin-left: clamp(0.25rem, 2vw, 3rem);
+    } */
+  }
+
   @media only screen and (min-width: 480px) {
     .heading-line-two {
       margin-left: clamp(0.1rem, 2vw, 5rem);
