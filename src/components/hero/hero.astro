@@ -48,7 +48,7 @@ const block = Astro.props;
     line-height: clamp(4rem, 29vw, 28rem);
     font-weight: 600;
     animation: slideUp ease 1s;
-    margin-left: -1rem;
+    /* margin-left: -1rem; */
   }
   .heading-line-two {
     font-size: clamp(2rem, 12vw, 14.25rem);
@@ -56,6 +56,7 @@ const block = Astro.props;
     font-weight: 400;
     animation: slideLeft ease 1.25s;
     display: flex;
+    justify-content: end;
   }
   .rotating-letter {
     animation: rotatingLetter ease 1.75s;
@@ -75,51 +76,51 @@ const block = Astro.props;
   }
 
   @media only screen and (min-width: 350px) {
-    .heading-line-two {
+    /* .heading-line-two {
       margin-left: clamp(0.1rem, 1vw, 5rem);
-    }
+    } */
     /* .subheading {
       margin-left: clamp(0.25rem, 2vw, 3rem);
     } */
   }
   @media only screen and (min-width: 400px) {
-    .heading-line-two {
+    /* .heading-line-two {
       margin-left: clamp(0.1rem, 1.5vw, 5rem);
-    }
+    } */
     /* .subheading {
       margin-left: clamp(0.25rem, 2vw, 3rem);
     } */
   }
 
   @media only screen and (min-width: 480px) {
-    .heading-line-two {
+    /* .heading-line-two {
       margin-left: clamp(0.1rem, 2vw, 5rem);
-    }
+    } */
     .subheading {
       margin-left: clamp(0.25rem, 2vw, 3rem);
     }
   }
 
   @media only screen and (min-width: 600px) {
-    .heading-line-two {
+    /* .heading-line-two {
       margin-left: clamp(0.5rem, 2.5vw, 5rem);
-    }
+    } */
     .subheading {
       margin-left: clamp(1.25rem, 2.75vw, 6rem);
     }
   }
   @media only screen and (min-width: 720px) {
-    .heading-line-two {
+    /* .heading-line-two {
       margin-left: clamp(0.5rem, 3vw, 5rem);
-    }
+    } */
     .subheading {
       margin-left: clamp(1.25rem, 3.5vw, 6rem);
     }
   }
   @media only screen and (min-width: 1024px) {
-    .heading-line-two {
+    /* .heading-line-two {
       margin-left: clamp(0.5rem, 4vw, 5rem);
-    }
+    } */
     .subheading {
       margin-left: clamp(1.25rem, 4.25vw, 6rem);
     }
