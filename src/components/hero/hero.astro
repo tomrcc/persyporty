@@ -11,23 +11,33 @@ const block = Astro.props;
     <h1 class="flex flex-col overflow-y-hidden">
       <span class="heading-line-one"> Tom </span>
       <span class="heading-line-two">
-        <span class="rotating-letter">R</span>
-        <span class="rotating-letter">i</span>
-        <span class="rotating-letter">c</span>
-        <span class="rotating-letter">h</span>
-        <span class="rotating-letter">a</span>
-        <span class="rotating-letter">r</span>
-        <span class="rotating-letter">d</span>
-        <span class="rotating-letter">s</span>
-        <span class="rotating-letter">o</span>
-        <span class="rotating-letter">n</span>
+        <span class="rotating-letter-sliding-left">R</span>
+        <span class="rotating-letter-sliding-left">i</span>
+        <span class="rotating-letter-sliding-left">c</span>
+        <span class="rotating-letter-sliding-left">h</span>
+        <span class="rotating-letter-sliding-left">a</span>
+        <span class="rotating-letter-sliding-left">r</span>
+        <span class="rotating-letter-sliding-left">d</span>
+        <span class="rotating-letter-sliding-left">s</span>
+        <span class="rotating-letter-sliding-left">o</span>
+        <span class="rotating-letter-sliding-left">n</span>
       </span>
     </h1>
-    <p class="subheading">Web Developer</p>
-    <!-- <p class="byline">for static sites</p> -->
-    <!-- <div class="icon mx-auto mt-4 w-10 text-gray-200">
-      <Icon icon={"Angle Down"} />
-    </div> -->
+    <p class="subheading">
+      <span class="rotating-letter-sliding-right">W</span>
+      <span class="rotating-letter-sliding-right">e</span>
+      <span class="rotating-letter-sliding-right">b</span>
+      <span class="rotating-letter-sliding-right">&nbsp;</span>
+      <span class="rotating-letter-sliding-right">D</span>
+      <span class="rotating-letter-sliding-right">e</span>
+      <span class="rotating-letter-sliding-right">v</span>
+      <span class="rotating-letter-sliding-right">e</span>
+      <span class="rotating-letter-sliding-right">l</span>
+      <span class="rotating-letter-sliding-right">o</span>
+      <span class="rotating-letter-sliding-right">p</span>
+      <span class="rotating-letter-sliding-right">e</span>
+      <span class="rotating-letter-sliding-right">r</span>
+    </p>
   </div>
 </section>
 
@@ -36,15 +46,18 @@ const block = Astro.props;
     max-width: var(--pageContainer);
     padding-inline: var(--pagePadding);
     margin: 0 auto;
+    padding-top: 48px;
     padding-bottom: 128px;
   }
 
-  h1 {
-    padding-block: 72px;
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
   }
   .heading-line-one {
     font-size: clamp(5rem, 28vw, 30.25rem);
-    line-height: clamp(4rem, 29vw, 28rem);
+    line-height: clamp(4rem, 28vw, 28rem);
     font-weight: 600;
     animation: slideUp ease 1s;
   }
@@ -56,23 +69,29 @@ const block = Astro.props;
     display: flex;
     justify-content: end;
   }
-  .rotating-letter {
-    animation: rotatingLetter ease 1.75s;
+  .rotating-letter-sliding-left {
+    animation: rotatingLetterSlidingLeft ease 1.75s;
+  }
+  .rotating-letter-sliding-right {
+    animation: rotatingLetterSlidingRight ease 1.75s;
+    margin-inline: 0;
+    font-size: clamp(1.25rem, 6vw, 2.5rem);
+    font-weight: 200;
   }
   .subheading {
-    font-size: clamp(1.25rem, 6vw, 2.5rem);
-    font-weight: 300;
     margin-left: clamp(0.25rem, 1vw, 3rem);
     margin-top: 64px;
-    animation: fadeInAnimation ease 3s;
-    letter-spacing: 0.15rem;
+    animation: slideRight ease 1.25s;
+    align-self: end;
+    display: flex;
+    gap: 0.1rem;
   }
   .icon {
     /* margin-top: 2rem; */
     animation: fadeInAnimation ease 3s;
   }
 
-  @media only screen and (min-width: 480px) {
+  /* @media only screen and (min-width: 480px) {
     .subheading {
       margin-left: clamp(0.25rem, 2vw, 3rem);
     }
@@ -92,10 +111,10 @@ const block = Astro.props;
     .subheading {
       margin-left: clamp(1.25rem, 4.25vw, 6rem);
     }
-  }
+  } */
 
   /* Animations */
-  @keyframes rotatingLetter {
+  @keyframes rotatingLetterSlidingLeft {
     0% {
       transform: rotate(0);
     }
@@ -110,6 +129,26 @@ const block = Astro.props;
     }
     90% {
       transform: rotate(3deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  @keyframes rotatingLetterSlidingRight {
+    0% {
+      transform: rotate(0);
+    }
+    10% {
+      transform: rotate(20deg);
+    }
+    60% {
+      transform: rotate(-15deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+    90% {
+      transform: rotate(-3deg);
     }
     100% {
       transform: rotate(0);
@@ -134,6 +173,22 @@ const block = Astro.props;
     }
     50% {
       transform: translateX(200%);
+      opacity: 0;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0rem);
+    }
+  }
+  @keyframes slideRight {
+    0% {
+      transform: translateX(-200%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(-200%);
       opacity: 0;
     }
     70% {
