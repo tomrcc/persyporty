@@ -54,6 +54,7 @@ const block = Astro.props;
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
+    overflow-x: hidden;
   }
   .heading-line-one {
     font-size: clamp(5rem, 28vw, 30.25rem);
@@ -62,7 +63,7 @@ const block = Astro.props;
     animation: slideUp ease 1s;
   }
   .heading-line-two {
-    font-size: clamp(2rem, 12vw, 14.25rem);
+    font-size: clamp(2rem, 12vw, 12.5rem);
     line-height: clamp(2rem, 10vw, 12.25rem);
     font-weight: 400;
     animation: slideLeft ease 1.25s;
@@ -86,32 +87,6 @@ const block = Astro.props;
     display: flex;
     gap: 0.1rem;
   }
-  .icon {
-    /* margin-top: 2rem; */
-    animation: fadeInAnimation ease 3s;
-  }
-
-  /* @media only screen and (min-width: 480px) {
-    .subheading {
-      margin-left: clamp(0.25rem, 2vw, 3rem);
-    }
-  }
-
-  @media only screen and (min-width: 600px) {
-    .subheading {
-      margin-left: clamp(1.25rem, 2.75vw, 6rem);
-    }
-  }
-  @media only screen and (min-width: 720px) {
-    .subheading {
-      margin-left: clamp(1.25rem, 3.5vw, 6rem);
-    }
-  }
-  @media only screen and (min-width: 1024px) {
-    .subheading {
-      margin-left: clamp(1.25rem, 4.25vw, 6rem);
-    }
-  } */
 
   /* Animations */
   @keyframes rotatingLetterSlidingLeft {
@@ -154,17 +129,6 @@ const block = Astro.props;
       transform: rotate(0);
     }
   }
-  @keyframes fadeInAnimation {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
 
   @keyframes slideLeft {
     0% {
@@ -196,15 +160,6 @@ const block = Astro.props;
     }
     100% {
       transform: translateX(0rem);
-    }
-  }
-
-  @keyframes scale {
-    0% {
-      scale: 0;
-    }
-    100% {
-      scale: 1;
     }
   }
   @keyframes slideUp {
