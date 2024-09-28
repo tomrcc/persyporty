@@ -45,9 +45,10 @@ const block = Astro.props;
     </form>
 
     <script
+      is:inline
       src="https://www.google.com/recaptcha/api.js?render=6LenN1EqAAAAAMXJ3Gp7dRqar0wr5abU0uw-8rP1"
     ></script>
-    <script>
+    <script is:inline>
       var submitted = false;
       var tokenCreated = false;
       var formEl = document.getElementById("contact-form");
