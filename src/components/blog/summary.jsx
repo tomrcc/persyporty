@@ -28,12 +28,11 @@ export default function PostSummary({ post }) {
             className="flex flex-col justify-start mt-2 max-w-[500px]"
             href={`/blog/${slug}`}>
             <p className="text-2xl font-semibold">{title}</p>
-            <p className="font-light">{author}</p>
             <p className="font-light">
               {dateObj.toLocaleDateString(undefined, {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
+                year: "numeric",
+                month: "long",
+                day: "numeric",
               })}
             </p>
           </a>

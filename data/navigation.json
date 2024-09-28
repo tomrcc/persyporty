@@ -8,6 +8,10 @@
       {
         "link": "/#contact",
         "text": "Contact"
+      },
+      {
+        "link": "/blog/",
+        "text": "Blog"
       }
     ]
   },
@@ -21,6 +25,10 @@
       {
         "link": "/#contact",
         "text": "Contact"
+      },
+      {
+        "link": "/blog",
+        "text": "Blog"
       }
     ],
     "social": [

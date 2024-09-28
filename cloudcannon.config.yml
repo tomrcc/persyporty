@@ -1,14 +1,10 @@
 timezone: Pacific/Auckland
-generator:
-  metadata:
-    markdown: markdown-it
-    markdown-it:
-      html: true
-      linkify: true
+
 paths:
   data: data
   static: "public"
   uploads: public/images
+
 _editables:
   content:
     blockquote: true
@@ -40,6 +36,7 @@ _editables:
     justify: align-justify
     image_size_attributes: true
     snippet: true
+
 collections_config:
   pages:
     path: src/content/pages
@@ -93,14 +90,9 @@ collections_config:
         options:
           empty_type: string
       tags:
-        type: array
+        type: multiselect
         options:
-          allow_create: true
-          empty_type: array
-      tags[*]:
-        type: text
-        options:
-          empty_type: string
+          values: data.tags
   data:
     path: data
     disable_add: true
@@ -125,6 +117,45 @@ collection_groups:
   - heading: Data
     collections:
       - data
+
+data_config:
+  icons:
+    path: data/icons.json
+  colors:
+    path: data/colors.json
+  tags:
+    path: data/tags.json
+
+file_config:
+  - glob: data/colors.json
+    _structures:
+      color:
+        values:
+          - value:
+              name:
+              value:
+            preview:
+              icon: palette
+    _inputs:
+      $:
+        type: array
+        label: Colors
+        comment: Set the colors available in the color selectors throughout the site.
+        options:
+          structures: _structures.color
+      value:
+        type: color
+      name:
+        type: text
+        comment: What is seen in the color selector dropdown.
+  - glob: data/tags.json
+    _inputs:
+      $:
+        type: array
+      $[*]:
+        options:
+          preview:
+            icon: bookmark
 
 _inputs:
   markdown_content:
@@ -273,14 +304,9 @@ _inputs:
       When selected this removes the page from your sitemap and adds the noindex
       robots meta tag
 
-data_config:
-  icons:
-    path: data/icons.json
-  colors:
-    path: data/colors.json
-
 _snippets_imports:
   mdx: true
+
 _snippets:
   alert:
     template: mdx_component
@@ -328,52 +354,6 @@ _snippets:
       alert_message:
         comment: This is the text displayed in the alert
         type: textarea
-  video:
-    template: mdx_component
-    inline: false
-    preview:
-      text: Video
-    definitions:
-      component_name: SnippetsVideo
-      named_args:
-        - editor_key: src
-          source_key: src
-          type: string
-    _inputs:
-      src:
-        type: file
-        options:
-          paths:
-            uploads: public/videos
-  file:
-    template: mdx_component
-    inline: false
-    preview:
-      text: File
-    definitions:
-      component_name: SnippetsFile
-      named_args:
-        - editor_key: src
-          source_key: src
-          type: string
-        - editor_key: file_name
-          source_key: file_name
-          type: string
-        - editor_key: link_message
-          source_key: link_message
-          type: string
-    _inputs:
-      src:
-        type: file
-        label: File source
-        options:
-          paths:
-            uploads: public/documents
-      file_name:
-        comment: The name of the file, once downloaded.
-      link_message:
-        type: textarea
-        comment: The text for the download link
   mdx_tint:
     template: mdx_paired_component
     inline: true
