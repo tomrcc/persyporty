@@ -55,10 +55,6 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <!-- Add editor styles -->
     <link rel="stylesheet" href="/css/editor.css" />
 
-    <script
-      src="https://www.google.com/recaptcha/api.js?render=6LenN1EqAAAAAMXJ3Gp7dRqar0wr5abU0uw-8rP1"
-    ></script>
-
     <SEO
       noindex={seo?.no_index || false}
       title={title}
