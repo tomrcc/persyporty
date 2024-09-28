@@ -7,10 +7,10 @@ import { header } from "../../../data/navigation.json";
   x-data="{ open: false }"
   x-transition
   style={`background-color: ${header.background_color}; color: ${header.color};`}>
-  <div class="header__container" style={`animation: fadeInAnimation ease 3s;`}>
+  <div class="header__container" style={`animation: fadeInAnimation ease 2s;`}>
     <nav class="header__nav">
       <a class="header__logo-link" href="/">
-        <img class="header__logo-image" src="/images/Slice 1.svg" alt="Logo" />
+        <img class="header__logo-image" src="/images/logo.svg" alt="Logo" />
       </a>
       <button class="hamburger" @click="open = ! open">
         <svg height="16" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,7 @@ import { header } from "../../../data/navigation.json";
             </mask>
             <use fill="#000" fill-rule="nonzero" href="#a"> </use>
             <g mask="url(#b)">
-              <path d="M-4-8h32v32H-4z" fill="#034AD8"> </path>
+              <path d="M-4-8h32v32H-4z" fill="#705bef"> </path>
             </g>
           </g>
         </svg>
@@ -43,18 +43,6 @@ import { header } from "../../../data/navigation.json";
           <a href="/blog/">Blog</a>
         </li>
       </ul>
-      <!-- <div class="">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="currentColor"
-            ><path d="M0 0h24v24H0V0z" fill="none"></path><path
-              d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zm-2 5.79V18h-3.52L12 20.48 9.52 18H6v-3.52L3.52 12 6 9.52V6h3.52L12 3.52 14.48 6H18v3.52L20.48 12 18 14.48zM12 6v12c3.31 0 6-2.69 6-6s-2.69-6-6-6z"
-            ></path></svg
-          >
-        </div> -->
     </nav>
   </div>
 </header>
@@ -93,14 +81,14 @@ import { header } from "../../../data/navigation.json";
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-    padding: 1rem;
+    gap: 64px;
+    padding: 16px;
   }
   .header__nav-link {
     cursor: pointer;
   }
   .header__nav-link:hover {
-    color: #034ad8;
+    color: #705bef;
   }
 
   @media screen and (min-width: 600px) {
@@ -139,9 +127,6 @@ import { header } from "../../../data/navigation.json";
   }
   @keyframes fadeInAnimation {
     0% {
-      opacity: 0;
-    }
-    50% {
       opacity: 0;
     }
     100% {

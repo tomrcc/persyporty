@@ -10,10 +10,10 @@ interface Props {
 const block = Astro.props;
 ---
 
-<section class="left-right" style={`background-color: #7469B6;`} id="contact">
+<section class="left-right" style={`background-color: #705bef;`} id="contact">
   <div class="content">
     <h2 class="heading" style={`color: #ffffff;`}>
-      <span>Contact</span><span>Contact</span>
+      <span>Contact Me</span><span>Contact Me</span>
     </h2>
     <form
       class="form"
@@ -37,7 +37,7 @@ const block = Astro.props;
       <input type="text" name="_gotcha" style="display: none;" />
       <div class="">
         <input
-          class="px-8 py-1 border hover:border-emerald-200 hover:shadow-sm hover:shadow-emerald-100 active:bg-emerald-200 tracking-widest rounded-full font-light"
+          class="px-8 py-1 border hover:shadow-sm hover:shadow-slate-200 active:bg-emerald-200 tracking-widest rounded-full font-light"
           type="submit"
           value="Send message"
         />
@@ -101,7 +101,7 @@ const block = Astro.props;
 
 <style>
   section {
-    padding-block: 48px;
+    padding-block: 128px;
   }
   .content {
     max-width: var(--pageContainer);
@@ -117,12 +117,13 @@ const block = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 64px;
-    line-height: 48px;
-    font-weight: 500;
+    font-size: clamp(5rem, 8vw, 9.75rem);
+    line-height: clamp(5rem, 8vw, 9.75rem);
+    font-weight: 800;
   }
   .heading span {
     padding-bottom: 32px;
+    white-space: nowrap;
   }
 
   .heading span:nth-child(2) {
@@ -165,10 +166,6 @@ const block = Astro.props;
   }
 
   @media screen and (min-width: 420px) {
-    .heading {
-      font-size: 100px;
-      line-height: 100px;
-    }
   }
   @media screen and (min-width: 720px) {
     .form {
@@ -176,24 +173,14 @@ const block = Astro.props;
     }
   }
   @media screen and (min-width: 1200px) {
-    .heading {
-      width: 55%;
-      font-size: 156px;
-      line-height: 120px;
-    }
-    form {
-      width: 45%;
-    }
     .content {
       flex-direction: row;
       justify-content: space-between;
+      gap: 48px;
     }
 
     .heading span:nth-child(2) {
       display: block;
-    }
-    section {
-      padding-block: 96px;
     }
   }
 </style>

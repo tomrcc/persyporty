@@ -13,7 +13,7 @@ const block = Astro.props;
 <section class="left-right" style={`background-color: #333232; color: #ffffff`}>
   <div class="content">
     <div class="text">
-      <h2>I make static sites</h2>
+      <h2>I make <br /> static sites</h2>
       <p>
         I’m a full stack web developer, trained in a React focused bootcamp, now
         specialising in static site generators - particularly Astro, Eleventy,
@@ -75,15 +75,16 @@ const block = Astro.props;
     .content {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       gap: 1rem;
     }
 
     .text {
-      width: 66%;
+      width: 50%;
     }
 
     .image {
-      width: 34%;
+      width: 50%;
     }
   }
 </style>
