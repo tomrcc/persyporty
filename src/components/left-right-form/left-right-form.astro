@@ -66,26 +66,17 @@ const block = Astro.props;
             grecaptcha.ready(function () {
               // do request for recaptcha token
               // response is promise with passed token
-              console.log("Sending grecaptcha request with event:", event);
               grecaptcha
                 .execute("6LenN1EqAAAAAMXJ3Gp7dRqar0wr5abU0uw-8rP1", {
                   action: "create_comment",
                 })
                 .then(function (token) {
                   // add token to form
-                  console.log(
-                    "Attaching grecaptcha token:",
-                    token,
-                    "To hidden form input"
-                  );
-                  console.log("formEl before", formEl);
                   var input = document.createElement("input");
                   input.type = "hidden";
                   input.name = "g-recaptcha-response";
                   input.value = token;
                   formEl.appendChild(input);
-
-                  console.log("formEl after", formEl);
 
                   // resubmit the form
                   tokenCreated = true;

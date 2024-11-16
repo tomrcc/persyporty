@@ -46,20 +46,25 @@ const block = Astro.props;
     max-width: var(--pageContainer);
     padding-inline: var(--pagePadding);
     margin: 0 auto;
-    padding-top: 48px;
-    padding-bottom: 128px;
+    padding-top: 96px;
+    padding-bottom: 96px;
     font-family: "Playfair Display", serif;
+
+    display: flex;
+    align-items: center;
   }
 
   .hero-container {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
+    justify-content: center;
+    height: 100%;
     overflow-x: hidden;
   }
   .heading-line-one {
-    font-size: clamp(5rem, 28vw, 30.25rem);
-    line-height: clamp(5rem, 28vw, 30.25rem);
+    font-size: clamp(5rem, 18vw, 13rem);
+    line-height: clamp(5rem, 18vw, 13rem);
     font-weight: 500;
     animation: slideUp ease 1s;
   }
@@ -69,7 +74,6 @@ const block = Astro.props;
     font-weight: 400;
     animation: slideLeft ease 1.25s;
     display: flex;
-    justify-content: end;
   }
   .rotating-letter-sliding-left {
     animation: rotatingLetterSlidingLeft ease 1.75s;
@@ -77,11 +81,10 @@ const block = Astro.props;
   .rotating-letter-sliding-right {
     animation: rotatingLetterSlidingRight ease 1.75s;
     margin-inline: 0;
-    font-size: clamp(1.25rem, 6vw, 2.5rem);
+    font-size: clamp(1.25rem, 8vw, 4rem);
     font-weight: 200;
   }
   .subheading {
-    margin-left: clamp(0.25rem, 1vw, 3rem);
     margin-top: 64px;
     animation: slideRight ease 1.25s;
     align-self: end;
