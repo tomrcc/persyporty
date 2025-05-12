@@ -7,7 +7,7 @@ import { header } from "../../../data/navigation.json";
   x-data="{ open: false }"
   x-transition
   style={`background-color: ${header.background_color}; color: ${header.color};`}>
-  <div class="header__container" style={`animation: fadeInAnimation ease 2s;`}>
+  <div class="header__container">
     <nav class="header__nav">
       <a class="header__logo-link" href="/">
         <img class="header__logo-image" src="/images/logo.svg" alt="Logo" />
@@ -123,14 +123,6 @@ import { header } from "../../../data/navigation.json";
   @media screen and (min-width: 600px) {
     .hamburger {
       display: none;
-    }
-  }
-  @keyframes fadeInAnimation {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
     }
   }
 </style>
