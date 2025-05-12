@@ -1,8 +1,4 @@
 ---
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
-import Markdown from "../utility/markdown.astro";
-
 interface Props {
   background_color: string;
 }
@@ -46,7 +42,7 @@ const block = Astro.props;
 
     <script
       is:inline
-      src="https://www.google.com/recaptcha/api.js?render=6LenN1EqAAAAAMXJ3Gp7dRqar0wr5abU0uw-8rP1"
+      src="https://www.google.com/recaptcha/api.js?render=6Le6EzYrAAAAAJ8zXWkFaQz-trI2ZBftkUSYT2aE"
     ></script>
     <script is:inline>
       var submitted = false;
@@ -67,7 +63,7 @@ const block = Astro.props;
               // do request for recaptcha token
               // response is promise with passed token
               grecaptcha
-                .execute("6LenN1EqAAAAAMXJ3Gp7dRqar0wr5abU0uw-8rP1", {
+                .execute("6Le6EzYrAAAAAJ8zXWkFaQz-trI2ZBftkUSYT2aE", {
                   action: "create_comment",
                 })
                 .then(function (token) {
