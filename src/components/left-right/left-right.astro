@@ -5,34 +5,48 @@ import Markdown from "../utility/markdown.astro";
 
 interface Props {
   background_color: string;
+  text_color: string;
+  heading: string;
+  text_content: string;
+  image: {
+    image_path: string;
+    image_alt: string;
+  };
+  flipped: boolean;
+  block_id: string;
 }
 
-const block = Astro.props;
+const { heading, text_content, image, flipped, block_id } = Astro.props;
 ---
 
-<section class="left-right" style={`background-color: #333232; color: #ffffff`}>
+<section id={block_id}>
   <div class="content">
+    {
+      flipped && (
+        <div class="image">
+          <img src={image.image_path} alt={image.image_alt} />
+        </div>
+      )
+    }
     <div class="text">
-      <h2>I make <br /> static sites</h2>
-      <p>
-        I’m a full stack web developer, trained in a React focused bootcamp, now
-        specialising in static site generators - particularly Astro, Eleventy,
-        Hugo, and Jekyll.
-      </p>
-      <p>
-        I work as a Solutions Architect for CloudCannon, a git-based content
-        management system for managing static sites.
-      </p>
+      <h2>{heading}</h2>
+      <Markdown content={text_content} />
     </div>
-    <div class="image">
-      <img src="/images/square-portrait.png" alt="" />
-    </div>
+    {
+      !flipped && (
+        <div class="image">
+          <img src={image.image_path} alt={image.image_alt} />
+        </div>
+      )
+    }
   </div>
 </section>
 
 <style>
   section {
-    padding-block: 128px;
+    padding-block: 96px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
   .content {
     max-width: var(--pageContainer);
@@ -46,11 +60,12 @@ const block = Astro.props;
     width: 100%;
   }
 
-  .text h2 {
-    font-size: clamp(48px, 15vw, 7.75rem);
-    line-height: clamp(40px, 13vw, 6.75rem);
-    font-weight: 600;
+  h2 {
+    font-size: clamp(3rem, 15vw, 7.75rem);
+    line-height: clamp(3rem, 13vw, 6.75rem);
+    font-weight: 400;
     margin-bottom: 3rem;
+    text-wrap: balance;
   }
   .image {
     width: 100%;

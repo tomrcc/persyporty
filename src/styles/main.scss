@@ -1,3 +1,4 @@
+@import "variables";
 @import "blog";
 @import "markdown";
 
@@ -11,14 +12,30 @@ html {
   font-family: Poppins, sans-serif;
 }
 
-h1,
-h2,
-h3 {
-  font-family: Playfair Display, serif;
+/* Light mode */
+:root {
+  --bg-color: white;
+  --text-color: #333232;
+}
+/* Dark mode (applied via a class) */
+.dark {
+  --bg-color: #333232;
+  --text-color: white;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 main {
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Playfair Display, serif;
 }
 
 img {

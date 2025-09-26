@@ -19,6 +19,7 @@
     "logo": "/images/logo-light.svg",
     "logo_url": "/",
     "copyright": "Tom Richardson. All rights reserved.",
+    "copyright_start_year": "2025",
     "background_color": "#333232",
     "color": "#ffffff",
     "links": [

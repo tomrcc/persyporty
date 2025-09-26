@@ -1,23 +1,52 @@
 ---
 interface Props {
+  block_id: string;
   background_color: string;
+  text_color: string;
+  heading: string;
+  form: {
+    form_id: string;
+    form_fields: [
+      {
+        label: string;
+        input_type: string;
+        required: boolean;
+      },
+    ];
+  };
 }
 
-const block = Astro.props;
+const { block_id, form, heading, background_color, text_color } = Astro.props;
 ---
 
-<section class="left-right" style={`background-color: #705bef;`} id="contact">
+<section id={block_id}>
   <div class="content">
-    <h2 class="heading" style={`color: #ffffff;`}>
-      <span>Contact Me</span><span>Contact Me</span>
-    </h2>
-    <form
-      class="form"
-      style={`background-color: white;`}
-      method="post"
-      id="contact-form"
-      action="/success/">
-      <div class="form-group">
+    <h2>{heading}</h2>
+    <form class="form" method="post" id={form.form_id} action="/success/">
+      {
+        form?.form_fields?.map((field) => {
+          return (
+            <div class="form-group">
+              <label for={field.label}>{field.label} </label>
+              {field.input_type === "textarea" ? (
+                <textarea
+                  name={field.label}
+                  id={field.label}
+                  required={field.required}
+                />
+              ) : (
+                <input
+                  type={field.input_type}
+                  name={field.label}
+                  id={field.label}
+                  required={field.required}
+                />
+              )}
+            </div>
+          );
+        })
+      }
+      <!-- <div class="form-group">
         <label for="name">Name </label>
         <input type="text" name="name" id="name" />
       </div>
@@ -28,7 +57,7 @@ const block = Astro.props;
       <div class="form-group message">
         <label for="message">Message </label>
         <textarea name="message" id="message" required></textarea>
-      </div>
+      </div> -->
       <input type="hidden" name="inbox_key" value="personal" />
       <input type="text" name="_gotcha" style="display: none;" />
       <div class="">
@@ -89,6 +118,8 @@ const block = Astro.props;
 <style>
   section {
     padding-block: 128px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
   .content {
     max-width: var(--pageContainer);
@@ -99,29 +130,23 @@ const block = Astro.props;
     justify-content: center;
     align-items: center;
   }
-  .heading {
+  h2 {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: clamp(4rem, 9vw, 8.5rem);
     line-height: clamp(4rem, 9vw, 8.5rem);
-    font-weight: 800;
-  }
-  .heading span {
+    font-weight: 400;
     padding-bottom: 32px;
   }
 
-  .heading span:nth-child(2) {
-    transform: rotatex(180deg);
-    opacity: 0.125;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.439);
-    display: none;
-  }
-
   form {
+    background-color: var(
+      --text-color
+    ); /* The opposite of the normal bg and text color */
+    color: var(--bg-color);
     width: 100%;
-    max-width: 28rem;
     padding-block: 64px;
     padding-inline: 24px;
     display: flex;
@@ -135,7 +160,6 @@ const block = Astro.props;
     display: flex;
     flex-direction: column;
     letter-spacing: 0.125em;
-    color: rgb(15, 15, 15);
   }
   .message {
     margin-block: 24px;
@@ -151,22 +175,20 @@ const block = Astro.props;
     min-height: 20ch;
   }
 
-  @media screen and (min-width: 420px) {
-  }
   @media screen and (min-width: 720px) {
     .form {
       padding-inline: 48px;
+      width: 50%;
+    }
+    h2 {
+      width: 50%;
     }
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1240px) {
     .content {
       flex-direction: row;
       justify-content: space-between;
       gap: 48px;
-    }
-
-    .heading span:nth-child(2) {
-      display: block;
     }
   }
 </style>

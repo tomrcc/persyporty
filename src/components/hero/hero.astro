@@ -1,55 +1,33 @@
 ---
 import Icon from "../utility/icon";
 
-interface Props {}
+interface Props {
+  text_color: string;
+  background_color: string;
+  heading: string;
+  subheading: string;
+}
 
-const block = Astro.props;
+const { heading, subheading } = Astro.props;
 ---
 
 <section>
   <div class="hero-container">
-    <h1 class="flex flex-col overflow-y-hidden">
-      <span class="heading-line-one"> Tom </span>
-      <span class="heading-line-two">
-        <span class="rotating-letter-sliding-left">R</span>
-        <span class="rotating-letter-sliding-left">i</span>
-        <span class="rotating-letter-sliding-left">c</span>
-        <span class="rotating-letter-sliding-left">h</span>
-        <span class="rotating-letter-sliding-left">a</span>
-        <span class="rotating-letter-sliding-left">r</span>
-        <span class="rotating-letter-sliding-left">d</span>
-        <span class="rotating-letter-sliding-left">s</span>
-        <span class="rotating-letter-sliding-left">o</span>
-        <span class="rotating-letter-sliding-left">n</span>
-      </span>
-    </h1>
-    <p class="subheading">
-      <span class="rotating-letter-sliding-right">W</span>
-      <span class="rotating-letter-sliding-right">e</span>
-      <span class="rotating-letter-sliding-right">b</span>
-      <span class="rotating-letter-sliding-right">&nbsp;</span>
-      <span class="rotating-letter-sliding-right">D</span>
-      <span class="rotating-letter-sliding-right">e</span>
-      <span class="rotating-letter-sliding-right">v</span>
-      <span class="rotating-letter-sliding-right">e</span>
-      <span class="rotating-letter-sliding-right">l</span>
-      <span class="rotating-letter-sliding-right">o</span>
-      <span class="rotating-letter-sliding-right">p</span>
-      <span class="rotating-letter-sliding-right">e</span>
-      <span class="rotating-letter-sliding-right">r</span>
-    </p>
+    <h1>{heading}</h1>
+    <p class="subheading">{subheading}</p>
   </div>
 </section>
 
 <style>
   section {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     max-width: var(--pageContainer);
     padding-inline: var(--pagePadding);
     margin: 0 auto;
     padding-top: 96px;
     padding-bottom: 96px;
     font-family: "Playfair Display", serif;
-
     display: flex;
     align-items: center;
   }
@@ -59,119 +37,30 @@ const block = Astro.props;
     grid-template-columns: 1fr;
     align-items: center;
     justify-content: center;
-    height: 100%;
     overflow-x: hidden;
   }
-  .heading-line-one {
-    font-size: clamp(5rem, 18vw, 13rem);
-    line-height: clamp(5rem, 18vw, 13rem);
-    font-weight: 500;
-    animation: slideUp ease 1s;
-  }
-  .heading-line-two {
-    font-size: clamp(2rem, 12vw, 12.5rem);
-    line-height: clamp(2rem, 12vw, 12.5rem);
+  h1 {
+    font-size: clamp(2rem, 14vw, 10rem);
+    line-height: clamp(2rem, 14vw, 10rem);
     font-weight: 400;
-    animation: slideLeft ease 1.25s;
     display: flex;
-  }
-  .rotating-letter-sliding-left {
-    animation: rotatingLetterSlidingLeft ease 1.75s;
-  }
-  .rotating-letter-sliding-right {
-    animation: rotatingLetterSlidingRight ease 1.75s;
-    margin-inline: 0;
-    font-size: clamp(1.25rem, 8vw, 4rem);
-    font-weight: 200;
+    flex-direction: column;
+    overflow-y: hidden;
+    color: inherit;
   }
   .subheading {
     margin-top: 64px;
-    animation: slideRight ease 1.25s;
     align-self: end;
     display: flex;
     gap: 0.1rem;
+    margin-inline: 0;
+    font-size: clamp(1.25rem, 8vw, 4rem);
+    font-weight: 300;
   }
 
-  /* Animations */
-  @keyframes rotatingLetterSlidingLeft {
-    0% {
-      transform: rotate(0);
-    }
-    10% {
-      transform: rotate(-20deg);
-    }
-    60% {
-      transform: rotate(15deg);
-    }
-    75% {
-      transform: rotate(-5deg);
-    }
-    90% {
-      transform: rotate(3deg);
-    }
-    100% {
-      transform: rotate(0);
-    }
-  }
-  @keyframes rotatingLetterSlidingRight {
-    0% {
-      transform: rotate(0);
-    }
-    10% {
-      transform: rotate(20deg);
-    }
-    60% {
-      transform: rotate(-15deg);
-    }
-    75% {
-      transform: rotate(5deg);
-    }
-    90% {
-      transform: rotate(-3deg);
-    }
-    100% {
-      transform: rotate(0);
-    }
-  }
-
-  @keyframes slideLeft {
-    0% {
-      transform: translateX(200%);
-      opacity: 0;
-    }
-    50% {
-      transform: translateX(200%);
-      opacity: 0;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(0rem);
-    }
-  }
-  @keyframes slideRight {
-    0% {
-      transform: translateX(-200%);
-      opacity: 0;
-    }
-    50% {
-      transform: translateX(-200%);
-      opacity: 0;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(0rem);
-    }
-  }
-  @keyframes slideUp {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(0);
+  @media screen and (min-width: 720px) and (max-width: 2560px) {
+    section {
+      min-height: 100vh;
     }
   }
 </style>

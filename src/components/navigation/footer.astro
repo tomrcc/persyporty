@@ -1,6 +1,13 @@
 ---
 import { footer } from "../../../data/navigation.json";
 import Icon from "../utility/icon";
+
+const currentYear = new Date().getFullYear();
+const copyrightStartDate = new Date(footer.copyright_start_year).getFullYear();
+const copyrightDateRange =
+  currentYear === copyrightStartDate
+    ? currentYear
+    : `${copyrightStartDate} - ${currentYear}`;
 ---
 
 <footer
@@ -27,7 +34,7 @@ import Icon from "../utility/icon";
         }
       </ul>
       <p class="text-center sm:text-end text-xs">
-        &#169; {new Date().getFullYear()}
+        &#169; {copyrightDateRange}
         {footer.copyright}
       </p>
     </div>
